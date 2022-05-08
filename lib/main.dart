@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future _loadResults([String? searchTerm]) async {
     final response = await http.get(Uri.parse(
-        devUrl + (searchTerm != null ? '?search_term=$searchTerm' : '')));
+        prodUrl + (searchTerm != null ? '?search_term=$searchTerm' : '')));
     if (response.statusCode == 200) {
       var tempList = <Offer>[];
       jsonDecode(response.body)['data']
