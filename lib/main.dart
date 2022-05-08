@@ -35,8 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
   String devUrl = 'http://127.0.0.1:8080/bachatv2/v1/offer';
 
   Future _loadResults([String? searchTerm]) async {
-    final response = await http.get(Uri.parse(
-        prodUrl + (searchTerm != null ? '?search_term=$searchTerm' : '')));
+    final response = await http.get(
+        Uri.parse(
+            prodUrl + (searchTerm != null ? '?search_term=$searchTerm' : '')),
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        });
     if (response.statusCode == 200) {
       var tempList = <Offer>[];
       jsonDecode(response.body)['data']
