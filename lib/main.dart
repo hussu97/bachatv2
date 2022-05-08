@@ -40,6 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
             prodUrl + (searchTerm != null ? '?search_term=$searchTerm' : '')),
         headers: {
           'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods':
+              'OPTIONS, GET, POST, PUT, PATCH, DELETE',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization'
         });
     if (response.statusCode == 200) {
       var tempList = <Offer>[];
